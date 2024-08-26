@@ -23,7 +23,7 @@ export const newOrder = async (req, res, next) => {
 
 export const myOrders = async (req, res, next) => {
     try {
-        const { id } = req.query;
+        const id = req.user._id;
         let orders = []
         const key = `my-orders-${id}`
         if (myCache.has(key)){
