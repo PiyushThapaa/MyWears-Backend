@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllUsers, getUser, getUserForAdmin, login, logout, register} from "../controllers/user.js";
+import { getAllUsers, getUser, getUserForAdmin, login, logout, register, updateAddress} from "../controllers/user.js";
 import { adminOnly } from "../Middlewares/adminOnly.js";
 import { isAuthenticated } from "../Middlewares/auth.js";
 
@@ -18,6 +18,8 @@ router.get('/all',isAuthenticated,adminOnly,getAllUsers)
 // route : /api/vl/users/me
 router.get("/me",isAuthenticated,getUser)
 
-router.route('/:id').get(isAuthenticated,adminOnly,getUserForAdmin)
+router.route('/:id')
+.get(isAuthenticated,adminOnly,getUserForAdmin)
+router.post("/updateAddress",isAuthenticated,updateAddress)
 
 export default router;

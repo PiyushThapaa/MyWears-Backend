@@ -73,3 +73,19 @@ export const getUserForAdmin = async (req, res, next) => {
       user
     })
 }
+
+export const updateAddress = async (req, res, next) => {
+    const {streetAddress, state, city, zipcode} = req.body;
+    const userid = req.user._id;
+    const user = await User.findOne({_id:userid})
+    if (!user) return next(new errorHandler("User not exist", 401))
+    user.streetAddress = streetAddress;
+    user.state = state;
+    user.city = city;
+    user.zipcode = zipcode;
+    await user.save()
+    res.status(200).json({
+        success:true,
+        message:"Your Address is Updated"
+    })
+}
