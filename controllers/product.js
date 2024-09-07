@@ -1,7 +1,7 @@
 import errorHandler from "../Middlewares/error.js";
 import { Product } from "../models/product.js";
 import { rm } from "fs"
-import { myCache } from "../server.js";
+import { myCache } from "../app.js";
 import { revalidateCache } from "../utils/features.js";
 
 export const newProduct = async (req, res, next) => {

@@ -1,6 +1,6 @@
 import errorHandler from "../Middlewares/error.js";
 import { Order } from "../models/order.js";
-import { myCache } from "../server.js";
+import { myCache } from "../app.js";
 import { reduceStock, revalidateCache } from "../utils/features.js";
 
 export const newOrder = async (req, res, next) => {

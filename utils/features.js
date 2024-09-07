@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Product } from "../models/product.js";
-import { myCache } from "../server.js";
+import { myCache } from "../app.js";
 import { Order } from "../models/order.js";
 
 export const sendCookie = (user, res, message, statusCode = 200) => {
