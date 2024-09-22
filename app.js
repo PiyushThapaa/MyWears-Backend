@@ -17,6 +17,8 @@ config({
     path: "./data/config.env"
 })
 
+const port = process.env.PORT || 3000
+
 const app = express();
 
 const allowedOrigin = [process.env.FRONTEND_URL];
@@ -63,6 +65,6 @@ app.use("/uploads",express.static("uploads"))
 
 app.use(errorMiddleware)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`)
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
 })
