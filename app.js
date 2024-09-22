@@ -51,8 +51,6 @@ app.use("/api/v1/orders",orderRouter);
 app.use("/api/v1/coupons",couponRouter);
 
 
-const port = process.env.PORT || 3000
-
 connectDB();
 
 export const myCache = new NodeCache()
@@ -65,6 +63,6 @@ app.use("/uploads",express.static("uploads"))
 
 app.use(errorMiddleware)
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}`)
 })
